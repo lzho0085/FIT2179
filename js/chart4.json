@@ -6,7 +6,7 @@
   "layer": [
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/lzho0085/2179/main/time_series_clean_en.csv"
+        "url": "https://raw.githubusercontent.com/lzho0085/FIT2179/main/time_series_clean_en.csv"
       },
       "transform": [
         {
