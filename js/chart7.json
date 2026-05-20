@@ -50,7 +50,7 @@
   "layer": [
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/lzho0085/2179/main/mys_state.json",
+        "url": "https://raw.githubusercontent.com/lzho0085/FIT2179/main/mys_state.json",
         "format": {"type": "topojson", "feature": "mys_admbnda_adm1_unhcr_20210211"}
       },
       "transform": [
@@ -62,7 +62,7 @@
           "lookup": "state_upper",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/lzho0085/2179/refs/heads/main/geoMap_clean_en.csv"
+              "url": "https://raw.githubusercontent.com/lzho0085/FIT2179/refs/heads/main/geoMap_clean_en.csv"
             },
             "key": "State",
             "fields": ["Japanese Anime"]
