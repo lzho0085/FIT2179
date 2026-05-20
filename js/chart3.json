@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": {"url": "https://raw.githubusercontent.com/lzho0085/2179/main/time_series_clean_en.csv"},
+  "data": {"url": "https://raw.githubusercontent.com/lzho0085/FIT2179/main/time_series_clean_en.csv"},
   "vconcat": [
     {
       "width": 700, "height": 250,
