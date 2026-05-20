@@ -1,0 +1,50 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Top Manga Searches in Malaysia",
+  "width": 300,
+  "height": 350,
+  "data": {
+    "url": "https://raw.githubusercontent.com/lzho0085/2179/main/searched_with_top-queries_MY_20250506-1736_20260506-1736.csv"
+  },
+  "transform": [
+    {
+      "window": [{"op": "rank", "as": "rank"}],
+      "sort": [{"field": "search interest", "order": "descending"}]
+    },
+    {
+      "filter": "datum.rank <= 15"
+    },
+    {
+      "calculate": "upper(substring(datum.query, 0, 1)) + substring(datum.query, 1)", 
+      "as": "FormattedQuery"
+    }
+  ],
+  "layer": [
+    {
+      "mark": "rule",
+      "encoding": {
+        "y": {
+          "field": "FormattedQuery", 
+          "type": "nominal", 
+          "sort": "-x", 
+          "title": null,
+          "axis": {"labelFontSize": 12}
+        },
+        "x": {"field": "search interest", "type": "quantitative"},
+        "x2": {"datum": 0}
+      }
+    },
+    {
+      "mark": {"type": "circle", "size": 100},
+      "encoding": {
+        "y": {"field": "FormattedQuery", "type": "nominal", "sort": "-x"},
+        "x": {"field": "search interest", "type": "quantitative"},
+        "color": {"value": "#0072B2"},
+        "tooltip": [
+          {"field": "FormattedQuery", "title": "Search Query"},
+          {"field": "search interest", "title": "Interest Score"}
+        ]
+      }
+    }
+  ]
+}
