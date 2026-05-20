@@ -4,7 +4,7 @@
   "width": 300,
   "height": 300,
   "data": {
-    "url": "https://raw.githubusercontent.com/lzho0085/2179/refs/heads/main/southeast_asia_japanese_learners.csv"
+    "url": "https://raw.githubusercontent.com/lzho0085/FIT2179/refs/heads/main/southeast_asia_japanese_learners.csv"
   },
   "mark": {
     "type": "circle",
