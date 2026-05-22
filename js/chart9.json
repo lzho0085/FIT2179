@@ -1,0 +1,162 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Anime vs Manga Interest by State",
+    "subtitle": "Each line shows one state's drop from Anime to Manga",
+    "anchor": "start"
+  },
+  "width": 320,
+  "height": 450,
+  "data": {
+    "url": "https://raw.githubusercontent.com/lzho0085/2179/refs/heads/main/geoMap_clean_en.csv"
+  },
+  "transform": [
+    {
+      "fold": ["Japanese Anime", "Japanese Manga"],
+      "as": ["Category", "Score"]
+    }
+  ],
+  "layer": [
+    {
+      "params": [
+        {
+          "name": "state_hover",
+          "select": {
+            "type": "point",
+            "on": "pointerover",
+            "fields": ["State"],
+            "clear": "pointerout"
+          }
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "x": {
+          "field": "Category",
+          "type": "nominal",
+          "title": null,
+          "axis": {
+            "labelAngle": 0,
+            "labelFontSize": 13,
+            "labelFontWeight": "bold"
+          },
+          "scale": {"padding": 60}
+        },
+        "y": {
+          "field": "Score",
+          "type": "quantitative",
+          "title": "Interest Score",
+          "scale": {"domainMin": 0},
+          "axis": {"grid": true}
+        },
+        "color": {
+          "field": "State",
+          "type": "nominal",
+          "legend": {"title": "State"}
+        },
+        "detail": {"field": "State", "type": "nominal"},
+        "opacity": {
+          "condition": {"param": "state_hover", "value": 1},
+          "value": 0.2
+        },
+        "strokeWidth": {
+          "condition": {"param": "state_hover", "value": 3},
+          "value": 1.2
+        },
+        "tooltip": [
+          {"field": "State", "type": "nominal"},
+          {"field": "Category", "type": "nominal"},
+          {"field": "Score", "type": "quantitative", "title": "Score"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 60
+      },
+      "encoding": {
+        "x": {"field": "Category", "type": "nominal"},
+        "y": {
+          "field": "Score",
+          "type": "quantitative",
+          "scale": {"domainMin": 0}
+        },
+        "color": {"field": "State", "type": "nominal"},
+        "opacity": {
+          "condition": {"param": "state_hover", "value": 1},
+          "value": 0.2
+        },
+        "tooltip": [
+          {"field": "State", "type": "nominal"},
+          {"field": "Category", "type": "nominal"},
+          {"field": "Score", "type": "quantitative", "title": "Score"}
+        ]
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.Category === 'Japanese Anime'"},
+        {
+          "filter": "datum.State === 'TERENGGANU' || datum.State === 'KUALA LUMPUR' || datum.State === 'LABUAN'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "fontSize": 11,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "x": {"field": "Category", "type": "nominal"},
+        "y": {
+          "field": "Score",
+          "type": "quantitative"
+        },
+        "text": {"field": "State", "type": "nominal"},
+        "color": {
+          "field": "State",
+          "type": "nominal",
+          "legend": null
+        }
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.Category === 'Japanese Manga'"},
+        {
+          "filter": "datum.State === 'LABUAN' || datum.State === 'KUALA LUMPUR'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "fontSize": 11,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "x": {"field": "Category", "type": "nominal"},
+        "y": {
+          "field": "Score",
+          "type": "quantitative"
+        },
+        "text": {"field": "State", "type": "nominal"},
+        "color": {
+          "field": "State",
+          "type": "nominal",
+          "legend": null
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": "transparent"},
+    "axis": {"domain": false, "ticks": false}
+  }
+}
