@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Japanese Wave in Malaysia</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+
+<body>
+    <div class="page-container">
+        
+        <div class="header">
+            <h1>The Japanese Wave in Malaysia</h1>
+            <p class="subtitle">Exploring the impact of Japanese culture, anime, and cuisine across states</p>
+            <p class="author">Created by Zhou Lichang | 20 May 2026</p>
+        </div>
+
+        <hr>
+
+        <div class="section-text">
+            <h2>1. The Foundation: Language and Education</h2>
+            <p>Culture drives Southeast Asian learners to study Japanese.</p>
+        </div>
+        <div class="pure-g chart-section">
+            <div class="pure-u-1 pure-u-md-1-2 vis-container" id="chart1"></div>
+            <div class="pure-u-1 pure-u-md-1-2 vis-container" id="chart2"></div>
+        </div>
+
+        <div class="section-text">
+            <h2>2. Cultural Trends Over Time</h2>
+            <p>Dynamic shifts between Anime, Manga, and Cuisine search trends.</p>
+        </div>
+        <div class="pure-g chart-section">
+            <div class="pure-u-1 vis-container" id="chart3"></div>
+        </div>
+        <div class="pure-g chart-section">
+            <div class="pure-u-1 vis-container" id="chart4"></div>
+        </div>
+
+        <div class="section-text">
+            <h2>3. What exactly are Malaysians searching for?</h2>
+            <p>Top manga queries and fastest-rising food searches analyzed.</p>
+        </div>
+        <div class="pure-g chart-section">
+            <div class="pure-u-1 pure-u-md-1-2 vis-container" id="chart5"></div>
+            <div class="pure-u-1 pure-u-md-1-2 vis-container" id="chart6"></div>
+        </div>
+
+        <div class="section-text">
+            <h2>4. Geographical Distribution of Anime Fans</h2>
+            <p>Anime search interest distribution across Malaysian states.</p>
+        </div>
+        <div class="pure-g chart-section map-section">
+            <div class="pure-u-1 vis-container" id="chart7"></div>
+        </div>
+
+        <div class="section-text">
+            <h2>5. State Preferences & Correlations</h2>
+            <p>Cultural preference ratios and strong Anime-Manga correlations.</p>
+        </div>
+        <div class="pure-g chart-section">
+            <div class="pure-u-1 pure-u-md-1-2 vis-container" id="chart8"></div>
+            <div class="pure-u-1 pure-u-md-1-2 vis-container" id="chart10"></div>
+        </div>
+        <div class="pure-g chart-section" style="align-items: center; justify-content: center;">
+            
+            <div class="pure-u-1 pure-u-md-2-3 vis-container" id="chart9"></div>
+            
+            <div class="pure-u-1 pure-u-md-1-3">
+                <div style="border-left: 4px solid #D55E00; padding-left: 18px; margin-left: 20px;">
+                    <h4 style="color: #D55E00; margin-top: 0; margin-bottom: 12px;">Key Insights</h4>
+                    
+                    <p style="color: #475569; font-size: 15px; line-height: 1.6; margin: 0 0 12px 0;">
+                        While all states show a drop in Manga interest, urban hubs like <strong>Kuala Lumpur</strong> exhibit the steepest overall decline.
+                    </p>
+                    
+                    <p style="color: #475569; font-size: 15px; line-height: 1.6; margin: 0;">
+                        Interestingly, regions like <strong>Labuan</strong> and <strong>Terengganu</strong> maintain the highest absolute interest across both categories. This indicates that while Anime dominates nationwide, the cultural retention of Manga varies significantly by local demographics.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="metadata-section">
+            <hr>
+            <h4>Data Sources:</h4>
+            <ul>
+                <li><strong>Google Trends:</strong> Data regarding search interest for Japanese Anime, Manga, Cuisine, and related terms in Malaysia. 
+                    <a href="https://trends.google.com/trends/explore?q=%2Fm%2F0jxy,%2Fm%2F04spm,%2Fm%2F025g__,%2Fm%2F03_3d,%2Fm%2F042ck&geo=MY&legacy&hl=en-GB" target="_blank">[View Dataset]</a>
+                </li>
+                <li><strong>The Japan Foundation (2021):</strong> Survey Report on Japanese-Language Education Abroad. Data used for analyzing learner motivations and demographics in Southeast Asia.
+                    <ul>
+                        <li><a href="https://www.jpf.go.jp/e/project/japanese/survey/result/dl/survey2021/Chapter1_Overview_r2.pdf" target="_blank">Chapter 1: Overview (PDF)</a></li>
+                        <li><a href="https://www.jpf.go.jp/e/project/japanese/survey/result/dl/survey2021/2_Southeast_Asia.pdf" target="_blank">Regional Report: Southeast Asia (PDF)</a></li>
+                        <li><a href="https://www.jpf.go.jp/e/project/japanese/survey/result/dl/survey2021/Summary_tables.pdf" target="_blank">Summary Tables (PDF)</a></li>
+                    </ul>
+                </li>
+                <li><strong>Geospatial Data:</strong> Malaysia state boundaries (TopoJSON) used for the choropleth map.
+                    <a href="https://github.com/Eashvaren/Malaysia-Topojson/blob/main/mys_state.json" target="_blank">[View TopoJSON]</a>
+                </li>  
+            </ul>
+        </div>
+
+    </div> 
+    
+    <script src="js/main.js"></script>
+
+</body>
+</html>
